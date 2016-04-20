@@ -1,0 +1,2005 @@
+Index: app/src/main/java/cn/edu/csuft/lkdapp/base/PictureCarouselViewHolder.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/cn/edu/csuft/lkdapp/base/PictureCarouselViewHolder.java	(revision )
++++ app/src/main/java/cn/edu/csuft/lkdapp/base/PictureCarouselViewHolder.java	(revision )
+@@ -0,0 +1,54 @@
++package cn.edu.csuft.lkdapp.base;
++
++import android.content.Context;
++import android.support.v4.view.ViewPager;
++import android.support.v7.widget.RecyclerView;
++import android.view.LayoutInflater;
++import android.view.View;
++import android.widget.ImageView;
++
++import cn.edu.csuft.lkdapp.R;
++
++import java.util.ArrayList;
++
++/**
++ *
++ */
++public class PictureCarouselViewHolder extends RecyclerView.ViewHolder{
++    //轮播的图片
++    public ArrayList<ImageView> imgs;
++    //轮播的图片资源id
++    int[] imgres = {
++            R.drawable.picturecarousel0,
++            R.drawable.picturecarousel1,
++            R.drawable.picturecarousel2,
++            R.drawable.picturecarousel3,
++            R.drawable.picturecarousel4,
++            R.drawable.picturecarousel5,
++            R.drawable.picturecarousel6};
++
++    public ViewPager vp;
++    /**
++     * 点点资源初始化
++     */
++    ImageView pointimg0,pointimg1,pointimg2,pointimg3,pointimg4,pointimg5,pointimg6;
++    ImageView[] pointimgs = {pointimg0,pointimg1,pointimg2,pointimg3,pointimg4,pointimg5,pointimg6};
++    int[] pointimgsres = {R.id.picturecarousel_img0
++            ,R.id.picturecarousel_img1
++            ,R.id.picturecarousel_img2
++            ,R.id.picturecarousel_img3
++            ,R.id.picturecarousel_img4
++            ,R.id.picturecarousel_img5
++            ,R.id.picturecarousel_img6};
++    /**
++     * 构造方法
++     * @param itemView
++     * @param context
++     */
++    public PictureCarouselViewHolder(View itemView,Context context) {
++        super(itemView);
++         View view = LayoutInflater.from(context).inflate(R.layout.main_home_picturecarousel, null);
++
++
++    }
++}
+Index: app/src/main/res/values/dimens.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values/dimens.xml	(revision )
++++ app/src/main/res/values/dimens.xml	(revision )
+@@ -0,0 +1,5 @@
++<resources>
++    <!-- Default screen margins, per the Android Design guidelines. -->
++    <dimen name="activity_horizontal_margin">16dp</dimen>
++    <dimen name="activity_vertical_margin">16dp</dimen>
++</resources>
+Index: app/src/main/res/anim/initactivity_open.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/anim/initactivity_open.xml	(revision )
++++ app/src/main/res/anim/initactivity_open.xml	(revision )
+@@ -0,0 +1,8 @@
++<?xml version="1.0" encoding="utf-8"?>
++<set xmlns:android="http://schemas.android.com/apk/res/android">
++    <alpha
++        android:duration="200"
++        android:fromAlpha="0.0"
++        android:toAlpha="1.0"
++        />
++</set>
+\ No newline at end of file
+Index: app/src/main/java/cn/edu/csuft/lkdapp/Config.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/cn/edu/csuft/lkdapp/Config.java	(revision )
++++ app/src/main/java/cn/edu/csuft/lkdapp/Config.java	(revision )
+@@ -0,0 +1,8 @@
++package cn.edu.csuft.lkdapp;
++
++/**
++ * Created by Administrator on 2016/4/5 0005.
++ */
++public class Config {
++
++}
+Index: app/src/main/res/drawable/ic_keyboard_arrow_right_24dp.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/drawable/ic_keyboard_arrow_right_24dp.xml	(revision )
++++ app/src/main/res/drawable/ic_keyboard_arrow_right_24dp.xml	(revision )
+@@ -0,0 +1,9 @@
++<vector xmlns:android="http://schemas.android.com/apk/res/android"
++        android:width="24dp"
++        android:height="24dp"
++        android:viewportWidth="24.0"
++        android:viewportHeight="24.0">
++    <path
++        android:fillColor="#FF000000"
++        android:pathData="M8.59,16.34l4.58,-4.59 -4.58,-4.59L10,5.75l6,6 -6,6z"/>
++</vector>
+Index: app/src/main/res/layout/main_home_picturecarousel.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/main_home_picturecarousel.xml	(revision )
++++ app/src/main/res/layout/main_home_picturecarousel.xml	(revision )
+@@ -0,0 +1,75 @@
++<?xml version="1.0" encoding="utf-8"?>
++<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    android:layout_width="match_parent"
++    android:layout_height="130dp"
++    android:orientation="vertical"
++     >
++
++    <FrameLayout
++        android:layout_width="match_parent"
++        android:layout_height="130dp">
++
++        <android.support.v4.view.ViewPager
++            android:id="@+id/main_picturecarousel_vp"
++            android:layout_width="match_parent"
++            android:layout_height="match_parent">
++
++        </android.support.v4.view.ViewPager>
++
++        <LinearLayout
++            android:layout_width="98dp"
++            android:layout_height="7dp"
++            android:orientation="horizontal"
++            android:layout_marginBottom="10dp"
++            android:layout_gravity="center_horizontal|bottom">
++            <ImageView
++                android:id="@+id/picturecarousel_img0"
++                android:layout_width="7dp"
++                android:layout_height="7dp"
++                android:src="@drawable/dian0"
++                />
++            <ImageView
++                android:id="@+id/picturecarousel_img1"
++                android:layout_marginLeft="7dp"
++                android:layout_width="7dp"
++                android:layout_height="7dp"
++                android:src="@drawable/dian1"
++                />
++            <ImageView
++                android:id="@+id/picturecarousel_img2"
++                android:layout_marginLeft="7dp"
++                android:layout_width="7dp"
++                android:layout_height="7dp"
++                android:src="@drawable/dian1"
++                />
++            <ImageView
++                android:id="@+id/picturecarousel_img3"
++                android:layout_marginLeft="7dp"
++                android:layout_width="7dp"
++                android:layout_height="7dp"
++                android:src="@drawable/dian1"
++                />
++            <ImageView
++                android:id="@+id/picturecarousel_img4"
++                android:layout_marginLeft="7dp"
++                android:layout_width="7dp"
++                android:layout_height="7dp"
++                android:src="@drawable/dian1"
++                />
++            <ImageView
++                android:id="@+id/picturecarousel_img5"
++                android:layout_marginLeft="7dp"
++                android:layout_width="7dp"
++                android:layout_height="7dp"
++                android:src="@drawable/dian1"
++                />
++            <ImageView
++                android:id="@+id/picturecarousel_img6"
++                android:layout_marginLeft="7dp"
++                android:layout_width="7dp"
++                android:layout_height="7dp"
++                android:src="@drawable/dian1"
++                />
++        </LinearLayout>
++    </FrameLayout>
++</LinearLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/main_user_frag.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/main_user_frag.xml	(revision )
++++ app/src/main/res/layout/main_user_frag.xml	(revision )
+@@ -0,0 +1,7 @@
++<?xml version="1.0" encoding="utf-8"?>
++<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    android:orientation="vertical" android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:background="#4e16cf">
++
++</LinearLayout>
+\ No newline at end of file
+Index: app/src/main/res/drawable/main_radiobutton_user.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/drawable/main_radiobutton_user.xml	(revision )
++++ app/src/main/res/drawable/main_radiobutton_user.xml	(revision )
+@@ -0,0 +1,5 @@
++<?xml version="1.0" encoding="utf-8"?>
++<selector xmlns:android="http://schemas.android.com/apk/res/android">
++    <item android:state_checked="true" android:drawable="@drawable/user_selected"/>
++    <item android:state_checked="false" android:drawable="@drawable/user_normal"/>
++</selector>
+\ No newline at end of file
+Index: app/src/main/res/layout/picturecarouse_item.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/picturecarouse_item.xml	(revision )
++++ app/src/main/res/layout/picturecarouse_item.xml	(revision )
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="utf-8"?>
++<ImageView xmlns:android="http://schemas.android.com/apk/res/android"
++    android:id="@+id/item"
++    android:scaleType="fitXY"
++    android:layout_width="match_parent"
++    android:layout_height="100dp" />
+\ No newline at end of file
+Index: app/src/main/java/cn/edu/csuft/lkdapp/aty/MainActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/cn/edu/csuft/lkdapp/aty/MainActivity.java	(revision )
++++ app/src/main/java/cn/edu/csuft/lkdapp/aty/MainActivity.java	(revision )
+@@ -0,0 +1,145 @@
++package cn.edu.csuft.lkdapp.aty;
++
++import android.os.Build;
++import android.os.Bundle;
++import android.support.v4.app.Fragment;
++import android.support.v4.app.FragmentActivity;
++import android.support.v4.app.FragmentPagerAdapter;
++import android.support.v4.view.ViewPager;
++import android.view.LayoutInflater;
++import android.view.View;
++import android.view.WindowManager;
++import android.widget.RadioButton;
++
++import cn.edu.csuft.lkdapp.R;
++
++import java.util.ArrayList;
++import java.util.List;
++
++import cn.edu.csuft.lkdapp.frag.HomeFrag;
++import cn.edu.csuft.lkdapp.frag.SchoolFrag;
++import cn.edu.csuft.lkdapp.frag.UserFrag;
++
++public class MainActivity extends FragmentActivity implements ViewPager.OnPageChangeListener {
++    // 主界面适配器
++    FragmentPagerAdapter fPagerAdapter;
++    // 所有的Tab
++    private List<View> views;
++    // 碎片每个碎片为一个布局
++    private ArrayList<Fragment> fragments;
++    // 导航式Tab
++    private ViewPager vp;
++    //四个radiobtn按钮id
++    private int[] radiobtnid = {R.id.rbtn_main_home, R.id.rbtn_main_school,
++            R.id.rbtn_main_user};
++    //四个radiobtn按钮
++    private RadioButton[] radiobtns;
++
++    @Override
++    protected void onCreate(Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        setContentView(R.layout.activity_main);
++        //设置沉浸式标题栏
++        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
++            getWindow().addFlags(
++                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
++            getWindow().addFlags(
++                    WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
++        }
++
++        // 创建碎片集合
++        fragments = new ArrayList<Fragment>();
++        initView();
++
++    }
++
++    private void initView() {
++        //绑定按钮组件
++        radiobtns = new RadioButton[3];
++        for (int i = 0; i < 3; i++) {
++            final int j = i;
++            radiobtns[i] = (RadioButton) findViewById(radiobtnid[i]);
++            radiobtns[i].setOnClickListener(new View.OnClickListener() {
++                @Override
++                public void onClick(View v) {
++                    changeTagView(j);
++                }
++            });
++        }
++
++
++        LayoutInflater inflater = LayoutInflater.from(this);
++        // 添加滑动
++        views = new ArrayList<View>();
++        views.add(inflater.inflate(R.layout.main_home_frag, null));
++        views.add(inflater.inflate(R.layout.main_school_frag, null));
++        views.add(inflater.inflate(R.layout.main_user_frag, null));
++        vp = (ViewPager) findViewById(R.id.main_viewPager);
++        fPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
++
++            @Override
++            public int getCount() {
++                return fragments.size();
++            }
++
++            @Override
++            public Fragment getItem(int arg0) {
++                return fragments.get(arg0);
++            }
++        };
++        // 声明各个Tab的实例
++        HomeFrag homeFrag = new HomeFrag();
++        SchoolFrag schoolFrag = new SchoolFrag();
++        UserFrag userFrag = new UserFrag();
++        fragments.add(homeFrag);
++        fragments.add(schoolFrag);
++        fragments.add(userFrag);
++        vp.setAdapter(fPagerAdapter);
++        vp.setOnPageChangeListener(this);
++        //注意，设置Page 即缓存页面的个数，数过小时会出现fragment重复加载的问题
++        vp.setOffscreenPageLimit(4);
++    }
++
++    @Override
++    public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
++
++    }
++
++    /**
++     * 自定义按钮选择的方法
++     * @param position
++     */
++    private void pageCheck(int position) {
++        radiobtns[position].setChecked(true);
++        for(int i = 0;i<3;i++) {
++            if (i!=position) {
++                radiobtns[i].setChecked(false);
++            }
++        }
++    }
++
++    @Override
++    public void onPageSelected(int position) {
++        switch (position) {
++            case 0:
++                pageCheck(position);
++                break;
++            case 1:
++                pageCheck(position);
++                break;
++            case 2:
++                pageCheck(position);
++                break;
++        }
++    }
++
++    @Override
++    public void onPageScrollStateChanged(int state) {
++
++    }
++
++    // 更换标签
++    private void changeTagView(int change) {
++        vp.setCurrentItem(change, false);
++    }
++}
+Index: app/src/main/res/drawable/main_radiobutton_home.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/drawable/main_radiobutton_home.xml	(revision )
++++ app/src/main/res/drawable/main_radiobutton_home.xml	(revision )
+@@ -0,0 +1,5 @@
++<?xml version="1.0" encoding="utf-8"?>
++<selector xmlns:android="http://schemas.android.com/apk/res/android">
++    <item android:state_checked="true" android:drawable="@drawable/home_selected"/>
++    <item android:state_checked="false" android:drawable="@drawable/home_normal"/>
++</selector>
+\ No newline at end of file
+Index: app/src/main/java/cn/edu/csuft/lkdapp/aty/InitActivity.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/cn/edu/csuft/lkdapp/aty/InitActivity.java	(revision )
++++ app/src/main/java/cn/edu/csuft/lkdapp/aty/InitActivity.java	(revision )
+@@ -0,0 +1,39 @@
++package cn.edu.csuft.lkdapp.aty;
++
++import android.app.Activity;
++import android.content.Intent;
++import android.os.Bundle;
++import android.os.Message;
++
++import cn.edu.csuft.lkdapp.R;
++
++/**
++ * Created by Administrator on 2016/4/5 0005.
++ */
++public class InitActivity extends Activity{
++    android.os.Handler handler = new android.os.Handler(){
++        @Override
++        public void handleMessage(Message msg) {
++            Intent i = new Intent(InitActivity.this,MainActivity.class);
++            startActivity(i);
++            overridePendingTransition(R.anim.initactivity_open, 0);
++            finish();
++        }
++    };
++    @Override
++    protected void onCreate(Bundle savedInstanceState) {
++        super.onCreate(savedInstanceState);
++        setContentView(R.layout.init_layout);
++        new Thread() {
++            @Override
++            public void run() {
++                try {
++                    sleep(2000);
++                    handler.sendEmptyMessage(1);
++                } catch (InterruptedException e) {
++                    e.printStackTrace();
++                }
++            }
++        }.start();
++    }
++}
+Index: app/src/main/java/cn/edu/csuft/lkdapp/frag/UserFrag.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/cn/edu/csuft/lkdapp/frag/UserFrag.java	(revision )
++++ app/src/main/java/cn/edu/csuft/lkdapp/frag/UserFrag.java	(revision )
+@@ -0,0 +1,20 @@
++package cn.edu.csuft.lkdapp.frag;
++
++import android.os.Bundle;
++import android.support.v4.app.Fragment;
++import android.view.LayoutInflater;
++import android.view.View;
++import android.view.ViewGroup;
++
++import cn.edu.csuft.lkdapp.R;
++
++/**
++ * Created by Administrator on 2016/4/5 0005.
++ */
++public class UserFrag extends Fragment {
++    @Override
++    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
++        View v = inflater.inflate(R.layout.main_user_frag,container,false);
++        return v;
++    }
++}
+Index: app/.gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/.gitignore	(revision )
++++ app/.gitignore	(revision )
+@@ -0,0 +1,1 @@
++/build
+Index: app/src/main/java/cn/edu/csuft/lkdapp/adapter/ImageAdapter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/cn/edu/csuft/lkdapp/adapter/ImageAdapter.java	(revision )
++++ app/src/main/java/cn/edu/csuft/lkdapp/adapter/ImageAdapter.java	(revision )
+@@ -0,0 +1,78 @@
++package cn.edu.csuft.lkdapp.adapter;
++
++import android.content.Context;
++import android.support.v4.view.PagerAdapter;
++import android.view.View;
++import android.view.ViewGroup;
++import android.view.ViewParent;
++import android.widget.ImageView;
++
++import java.util.ArrayList;
++
++/**
++ * Created by nangua on 2016/4/15 0015.
++ */
++public class ImageAdapter extends PagerAdapter {
++    private Context context;
++    //轮播需要的图片
++    public ArrayList<ImageView> imgs;
++
++    public ImageAdapter(Context context, ArrayList<ImageView> imgs) {
++        this.context = context;
++        this.imgs = imgs;
++    }
++
++    /**
++     * ViewPager的边界
++     * @return
++     */
++    @Override
++    public int getCount() {
++        //设置成最大，使无限循环
++        return 10000;
++    }
++    @Override
++    public boolean isViewFromObject(View view, Object object) {
++        return view==object;
++    }
++
++    /**
++     * 由于我们在instantiateItem()方法中已经处理了remove的逻辑，
++     * 因此这里并不需要处理。实际上，实验表明这里如果加上了remove的调用，
++     * 则会出现ViewPager的内容为空的情况。
++     * @param container
++     * @param position
++     * @param object
++     */
++    @Override
++    public void destroyItem(ViewGroup container, int position, Object object) {
++        //警告:不要在这里调用removeView
++    }
++
++    /**
++     * @param container
++     * @param position
++     * @return
++     * 对position进行求模操作
++     * 因为当用户向左滑时position可能出现负值，所以必须进行处理
++     */
++    @Override
++    public Object instantiateItem(ViewGroup container, int position) {
++        //对Viewpager页号求模去除View列表中要显示的项
++        position %= imgs.size();
++        if (position<0) {
++            position = imgs.size() + position;
++        }
++        ImageView view = imgs.get(position);
++        //如果View已经在之前添加到了一个父组件，则必须先remove，否则会抛出IllegalStateException。
++        ViewParent viewParent = view.getParent();
++        if (viewParent!=null){
++            ViewGroup parent = (ViewGroup)viewParent;
++            parent.removeView(view);
++        }
++        container.addView(view);
++
++
++        return view;
++    }
++}
+Index: app/src/main/res/values/strings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values/strings.xml	(revision )
++++ app/src/main/res/values/strings.xml	(revision )
+@@ -0,0 +1,7 @@
++<resources>
++    <string name="app_name">LKDapp</string>
++    <string name="main_radiobtn_home">主页</string>
++    <string name="main_radiobtn_school">校内</string>
++    <string name="main_radiobtn_user">我</string>
++
++</resources>
+Index: app/src/main/res/layout/init_layout.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/init_layout.xml	(revision )
++++ app/src/main/res/layout/init_layout.xml	(revision )
+@@ -0,0 +1,14 @@
++<?xml version="1.0" encoding="utf-8"?>
++<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:background="@android:color/white"
++    android:orientation="vertical">
++
++    <ImageView
++        android:layout_width="150dp"
++        android:layout_height="150dp"
++        android:src="@drawable/initxiaohui"
++        android:layout_centerVertical="true"
++        android:layout_centerHorizontal="true" />
++</RelativeLayout>
+\ No newline at end of file
+Index: app/build.gradle
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/build.gradle	(revision )
++++ app/build.gradle	(revision )
+@@ -0,0 +1,29 @@
++apply plugin: 'com.android.application'
++
++android {
++    compileSdkVersion 23
++    buildToolsVersion "23.0.3"
++
++    defaultConfig {
++        applicationId "cn.edu.csuft.lkdapp"
++        minSdkVersion 22
++        targetSdkVersion 23
++        versionCode 1
++        versionName "1.0"
++    }
++    buildTypes {
++        release {
++            minifyEnabled false
++            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
++        }
++    }
++}
++
++dependencies {
++    compile fileTree(include: ['*.jar'], dir: 'libs')
++    testCompile 'junit:junit:4.12'
++    compile 'com.android.support:appcompat-v7:23.2.1'
++    compile 'de.hdodenhof:circleimageview:2.0.0'
++    compile 'com.android.support:gridlayout-v7:23.0.1'
++    compile 'com.android.support:recyclerview-v7:23.2.1'
++}
+Index: app/src/main/res/layout/main_home_others1.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/main_home_others1.xml	(revision )
++++ app/src/main/res/layout/main_home_others1.xml	(revision )
+@@ -0,0 +1,144 @@
++<?xml version="1.0" encoding="utf-8"?>
++<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    android:layout_width="match_parent"
++    android:layout_height="400dp"
++    android:orientation="vertical">
++
++    <LinearLayout
++        android:layout_width="match_parent"
++        android:layout_height="50dp"
++        android:orientation="horizontal">
++
++        <TextView
++            android:layout_width="wrap_content"
++            android:layout_height="match_parent"
++            android:layout_marginLeft="10dp"
++            android:drawableStart="@drawable/tree"
++            android:gravity="center_vertical"
++            android:padding="1dp"
++            android:text="精选专题" />
++
++        <TextView
++            android:layout_width="wrap_content"
++            android:layout_height="match_parent"
++            android:layout_marginLeft="160dp"
++            android:drawableEnd="@drawable/ic_keyboard_arrow_right_24dp"
++            android:gravity="center_vertical"
++            android:text="精选专题跳转" />
++    </LinearLayout>
++
++    <android.support.v7.widget.GridLayout xmlns:app="http://schemas.android.com/apk/res-auto"
++        android:layout_width="match_parent"
++        android:layout_height="350dp"
++        app:columnCount="2"
++        app:rowCount="4">
++
++        <LinearLayout
++            android:layout_width="0dp"
++            android:layout_height="0dp"
++            app:layout_columnWeight="1"
++            app:layout_rowSpan="2"
++            app:layout_rowWeight="1"
++            android:orientation="vertical">
++            <ImageButton
++                android:layout_width="match_parent"
++                android:layout_height="0dp"
++                android:layout_weight="1"
++                android:src="@drawable/fengjing7"
++                android:scaleType="fitXY"
++                style="@style/Base.Widget.AppCompat.Button.Borderless" />
++            <TextView
++                android:paddingLeft="10dp"
++                android:layout_width="match_parent"
++                android:layout_height="20dp"
++                android:text="还是填充测试数据"
++                 />
++        </LinearLayout>
++
++        <LinearLayout
++            android:layout_width="0dp"
++            android:layout_height="0dp"
++            app:layout_columnWeight="2"
++            app:layout_rowWeight="1"
++            android:orientation="vertical">
++            <ImageButton
++                android:layout_width="match_parent"
++                android:layout_height="0dp"
++                android:layout_weight="1"
++                android:src="@drawable/fengjing8"
++                android:scaleType="fitXY"
++                style="@style/Base.Widget.AppCompat.Button.Borderless" />
++            <TextView
++                android:paddingLeft="10dp"
++                android:layout_width="match_parent"
++                android:layout_height="20dp"
++                android:text="还是填充测试数据"
++                />
++        </LinearLayout>
++
++        <LinearLayout
++            android:layout_width="0dp"
++            android:layout_height="0dp"
++            app:layout_columnWeight="2"
++            app:layout_rowWeight="1"
++            android:orientation="vertical">
++            <ImageButton
++                android:layout_width="match_parent"
++                android:layout_height="0dp"
++                android:layout_weight="1"
++                android:src="@drawable/fengjing9"
++                android:scaleType="fitXY"
++                style="@style/Base.Widget.AppCompat.Button.Borderless" />
++            <TextView
++                android:paddingLeft="10dp"
++                android:layout_width="match_parent"
++                android:layout_height="20dp"
++                android:text="还是填充测试数据"
++                />
++        </LinearLayout>
++
++        <LinearLayout
++            android:layout_width="0dp"
++            android:layout_height="0dp"
++            app:layout_columnWeight="2"
++            app:layout_rowWeight="1"
++            android:orientation="vertical">
++            <ImageButton
++                android:layout_width="match_parent"
++                android:layout_height="0dp"
++                android:layout_weight="1"
++                android:src="@drawable/fengjing10"
++                android:scaleType="fitXY"
++                style="@style/Base.Widget.AppCompat.Button.Borderless" />
++            <TextView
++                android:paddingLeft="10dp"
++                android:layout_width="match_parent"
++                android:layout_height="20dp"
++                android:text="还是填充测试数据"
++                />
++        </LinearLayout>
++
++        <LinearLayout
++            android:layout_width="0dp"
++            android:layout_height="0dp"
++            app:layout_columnWeight="2"
++            app:layout_rowWeight="1"
++            android:orientation="vertical">
++            <ImageButton
++                android:layout_width="match_parent"
++                android:layout_height="0dp"
++                android:layout_weight="1"
++                android:src="@drawable/fengjing11"
++                android:scaleType="fitXY"
++                style="@style/Base.Widget.AppCompat.Button.Borderless" />
++            <TextView
++                android:paddingLeft="10dp"
++                android:layout_width="match_parent"
++                android:layout_height="20dp"
++                android:text="还是填充测试数据"
++                />
++        </LinearLayout>
++
++    </android.support.v7.widget.GridLayout>
++</LinearLayout>
+\ No newline at end of file
+Index: app/src/main/java/cn/edu/csuft/lkdapp/util/MainRvTypeUtil.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/cn/edu/csuft/lkdapp/util/MainRvTypeUtil.java	(revision )
++++ app/src/main/java/cn/edu/csuft/lkdapp/util/MainRvTypeUtil.java	(revision )
+@@ -0,0 +1,16 @@
++package cn.edu.csuft.lkdapp.util;
++
++/**
++ * Created by nangua on 2016/4/7 0007.
++ */
++public interface MainRvTypeUtil {
++    /**
++     * 顶部图片轮播组件类型
++     */
++    public int PICTURECAROUSEL = 0;
++
++    /**
++     * 八个菜单功能按钮组件类型
++     */
++    public int MENUBAR = 1;
++}
+Index: app/src/main/res/layout/main_home_others2.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/main_home_others2.xml	(revision )
++++ app/src/main/res/layout/main_home_others2.xml	(revision )
+@@ -0,0 +1,37 @@
++<?xml version="1.0" encoding="utf-8"?>
++<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    android:layout_width="match_parent"
++    android:layout_height="400dp"
++    android:orientation="vertical">
++    <TextView
++        android:layout_width="match_parent"
++        android:layout_height="0dp"
++        android:layout_weight="1"
++        android:text="精选专题"
++        android:padding="1dp"
++        android:gravity="center_vertical"
++        android:layout_marginLeft="10dp"
++        android:drawablePadding="5dp"
++        android:drawableStart="@drawable/tree"/>
++    <ImageView
++        android:padding="10dp"
++        android:layout_width="match_parent"
++        android:layout_height="0dp"
++        android:layout_weight="3"
++        android:scaleType="fitXY"
++        android:src="@drawable/fengjing4"/>
++    <ImageView
++        android:padding="10dp"
++        android:layout_width="match_parent"
++        android:layout_height="0dp"
++        android:layout_weight="3"
++        android:scaleType="fitXY"
++        android:src="@drawable/fengjing5"/>
++    <ImageView
++        android:padding="10dp"
++        android:layout_width="match_parent"
++        android:layout_height="0dp"
++        android:layout_weight="3"
++        android:scaleType="fitXY"
++        android:src="@drawable/fengjing6"/>
++</LinearLayout>
+\ No newline at end of file
+Index: app/src/androidTest/java/cn/edu/csuft/lkdapp/ApplicationTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/androidTest/java/cn/edu/csuft/lkdapp/ApplicationTest.java	(revision )
++++ app/src/androidTest/java/cn/edu/csuft/lkdapp/ApplicationTest.java	(revision )
+@@ -0,0 +1,13 @@
++package cn.edu.csuft.lkdapp;
++
++import android.app.Application;
++import android.test.ApplicationTestCase;
++
++/**
++ * <a href="http://d.android.com/tools/testing/testing_android.html">Testing Fundamentals</a>
++ */
++public class ApplicationTest extends ApplicationTestCase<Application> {
++    public ApplicationTest() {
++        super(Application.class);
++    }
++}
+\ No newline at end of file
+Index: app/src/main/java/cn/edu/csuft/lkdapp/bean/Communitybean.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/cn/edu/csuft/lkdapp/bean/Communitybean.java	(revision )
++++ app/src/main/java/cn/edu/csuft/lkdapp/bean/Communitybean.java	(revision )
+@@ -0,0 +1,40 @@
++package cn.edu.csuft.lkdapp.bean;
++
++/**
++ * Created by nangua on 2016/4/7 0007.
++ */
++public class Communitybean {
++    //暂时的类
++    public String getTitle() {
++        return title;
++    }
++
++    public void setTitle(String title) {
++        this.title = title;
++    }
++
++    private String title;
++
++    public String getInfo() {
++        return info;
++    }
++
++    public void setInfo(String info) {
++        this.info = info;
++    }
++
++    private String info;
++
++    public Communitybean(String titlem,String info) {
++        this.title = title;
++        this.info = info;
++    }
++
++    @Override
++    public String toString() {
++        return "Communitybean{" +
++                "title='" + title + '\'' +
++                ", info='" + info + '\'' +
++                '}';
++    }
++}
+Index: app/src/main/res/drawable/main_radiobutton_school.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/drawable/main_radiobutton_school.xml	(revision )
++++ app/src/main/res/drawable/main_radiobutton_school.xml	(revision )
+@@ -0,0 +1,5 @@
++<?xml version="1.0" encoding="utf-8"?>
++<selector xmlns:android="http://schemas.android.com/apk/res/android">
++    <item android:state_checked="true" android:drawable="@drawable/scholl_selected"/>
++    <item android:state_checked="false" android:drawable="@drawable/scholl_normal"/>
++</selector>
+\ No newline at end of file
+Index: app/proguard-rules.pro
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/proguard-rules.pro	(revision )
++++ app/proguard-rules.pro	(revision )
+@@ -0,0 +1,17 @@
++# Add project specific ProGuard rules here.
++# By default, the flags in this file are appended to flags specified
++# in D:\AndroidStudiSdk/tools/proguard/proguard-android.txt
++# You can edit the include path and order by changing the proguardFiles
++# directive in build.gradle.
++#
++# For more details, see
++#   http://developer.android.com/guide/developing/tools/proguard.html
++
++# Add any project specific keep options here:
++
++# If your project uses WebView with JS, uncomment the following
++# and specify the fully qualified class name to the JavaScript interface
++# class:
++#-keepclassmembers class fqcn.of.javascript.interface.for.webview {
++#   public *;
++#}
+Index: app/src/main/res/drawable/ic_thumb_up_24dp.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/drawable/ic_thumb_up_24dp.xml	(revision )
++++ app/src/main/res/drawable/ic_thumb_up_24dp.xml	(revision )
+@@ -0,0 +1,9 @@
++<vector xmlns:android="http://schemas.android.com/apk/res/android"
++        android:width="24dp"
++        android:height="24dp"
++        android:viewportWidth="24.0"
++        android:viewportHeight="24.0">
++    <path
++        android:fillColor="#FF000000"
++        android:pathData="M1,21h4V9H1v12zm22,-11c0,-1.1 -0.9,-2 -2,-2h-6.31l0.95,-4.57 0.03,-0.32c0,-0.41 -0.17,-0.79 -0.44,-1.06L14.17,1 7.59,7.59C7.22,7.95 7,8.45 7,9v10c0,1.1 0.9,2 2,2h9c0.83,0 1.54,-0.5 1.84,-1.22l3.02,-7.05c0.09,-0.23 0.14,-0.47 0.14,-0.73v-1.91l-0.01,-0.01L23,10z"/>
++</vector>
+Index: app/src/main/res/values/styles.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values/styles.xml	(revision )
++++ app/src/main/res/values/styles.xml	(revision )
+@@ -0,0 +1,11 @@
++<resources>
++
++    <!-- Base application theme. -->
++    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
++        <!-- Customize your theme here. -->
++        <item name="colorPrimary">@color/colorPrimary</item>
++        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
++        <item name="colorAccent">@color/colorAccent</item>
++    </style>
++
++</resources>
+Index: app/src/main/AndroidManifest.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/AndroidManifest.xml	(revision )
++++ app/src/main/AndroidManifest.xml	(revision )
+@@ -0,0 +1,26 @@
++<?xml version="1.0" encoding="utf-8"?>
++<manifest xmlns:android="http://schemas.android.com/apk/res/android"
++    package="cn.edu.csuft.lkdapp">
++
++    <uses-permission android:name="android.permission.INTERNET"></uses-permission>
++    <application
++        android:allowBackup="true"
++        android:icon="@mipmap/ic_launcher"
++        android:label="@string/app_name"
++        android:supportsRtl="true"
++        android:theme="@android:style/Theme.Material.Light.NoActionBar">
++        <activity android:name=".aty.MainActivity">
++        </activity>
++
++        <activity android:name=".aty.InitActivity"
++            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
++
++            <intent-filter>
++                <action android:name="android.intent.action.MAIN" />
++
++                <category android:name="android.intent.category.LAUNCHER" />
++            </intent-filter>
++        </activity>
++    </application>
++
++</manifest>
+Index: app/src/main/java/cn/edu/csuft/lkdapp/adapter/MainRvAdapter.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/cn/edu/csuft/lkdapp/adapter/MainRvAdapter.java	(revision )
++++ app/src/main/java/cn/edu/csuft/lkdapp/adapter/MainRvAdapter.java	(revision )
+@@ -0,0 +1,177 @@
++package cn.edu.csuft.lkdapp.adapter;
++
++import android.content.Context;
++import android.os.Message;
++import android.support.v4.view.ViewPager;
++import android.support.v7.widget.RecyclerView;
++import android.view.LayoutInflater;
++import android.view.View;
++import android.view.ViewGroup;
++import android.widget.ImageView;
++import android.widget.Toast;
++
++import cn.edu.csuft.lkdapp.R;
++
++import java.util.ArrayList;
++import java.util.List;
++
++import cn.edu.csuft.lkdapp.base.PictureCarouselViewHolder;
++import cn.edu.csuft.lkdapp.bean.Communitybean;
++import cn.edu.csuft.lkdapp.handler.ImageCarouseHandler;
++import cn.edu.csuft.lkdapp.util.MainRvTypeUtil;
++
++/**
++ * Created by nangua on 2016/4/7 0007.
++ */
++
++
++public class MainRvAdapter extends RecyclerView.Adapter<PictureCarouselViewHolder> implements MainRvTypeUtil {
++
++    /**
++     * 类型集合，adapter对应的数据集合
++     */
++    private List<Integer> testDates= new ArrayList<>();
++    private Context context;
++    private ViewPager vp;
++    public MainRvAdapter(Context context,Communitybean communitybean,  ImageCarouseHandler handler ) {
++        this.context = context;
++       this.handler = handler;
++        //添加假数据进去
++        testDates.add(0);
++        testDates.add(1);
++        testDates.add(2);
++        testDates.add(3);
++        testDates.add(4);
++    }
++
++    int i = 0;
++
++    private ImageCarouseHandler handler;
++    ArrayList<ImageView> views;
++    int[] imgres = {
++             R.drawable.picturecarousel0
++            ,R.drawable.picturecarousel1
++            ,R.drawable.picturecarousel2
++            ,R.drawable.picturecarousel3
++            ,R.drawable.picturecarousel4
++            ,R.drawable.picturecarousel5
++            ,R.drawable.picturecarousel6};
++    ImageView pointimg0,pointimg1,pointimg2,pointimg3,pointimg4,pointimg5,pointimg6;
++    ImageView[] pointimgs = {pointimg0,pointimg1,pointimg2,pointimg3,pointimg4,pointimg5,pointimg6};
++    int[] pointimgsres = {R.id.picturecarousel_img0
++            ,R.id.picturecarousel_img1
++            ,R.id.picturecarousel_img2
++            ,R.id.picturecarousel_img3
++            ,R.id.picturecarousel_img4
++            ,R.id.picturecarousel_img5
++            ,R.id.picturecarousel_img6};
++    @Override
++    public PictureCarouselViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
++        if (i==0) {
++            i++;
++            View view = LayoutInflater.from(context).inflate(R.layout.main_home_picturecarousel,null);
++            vp = (ViewPager) view.findViewById(R.id.main_picturecarousel_vp);
++            views = new ArrayList<>();
++            LayoutInflater inflater = LayoutInflater.from(context);
++            for (int i = 0;i<7; i++) {
++                ImageView imgv = (ImageView) inflater.inflate(R.layout.picturecarouse_item,null);
++                imgv.setImageResource(imgres[i]);
++                views.add(imgv);
++                //初始化点点
++                pointimgs[i] = (ImageView) view.findViewById(pointimgsres[i]);
++            }
++            vp.setAdapter(new ImageAdapter(context,views));
++            return new PictureCarouselViewHolder(view,context);
++        } else if(i==1){
++            PictureCarouselViewHolder holder = new PictureCarouselViewHolder(LayoutInflater.from(
++                    context).inflate(R.layout.main_home_menubar, parent,
++                    false),context);
++            i++;
++            return holder;
++        } else if(i==2){
++            PictureCarouselViewHolder holder = new PictureCarouselViewHolder(LayoutInflater.from(
++                    context).inflate(R.layout.main_home_others, parent,
++                    false),context);
++            i++;
++            return holder;
++        } else if (i==3) {
++            PictureCarouselViewHolder holder = new PictureCarouselViewHolder(LayoutInflater.from(
++                    context).inflate(R.layout.main_home_others1, parent,
++                    false),context);
++            i++;
++            return holder;
++        } else {
++            PictureCarouselViewHolder holder = new PictureCarouselViewHolder(LayoutInflater.from(
++                    context).inflate(R.layout.main_home_others2, parent,
++                    false),context);
++            i++;
++            return holder;
++        }
++    }
++
++    @Override
++    public void onBindViewHolder(PictureCarouselViewHolder holder, int position) {
++
++        //这里传入imgs数据
++      //  vp.setAdapter(new ImageAdapter(context,holder.imgs));
++        vp.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
++            @Override
++            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
++            }
++
++            @Override
++            public void onPageSelected(int position) {
++                showpoint(position);
++                handler.sendMessage(Message.obtain(handler, ImageCarouseHandler.MSG_PAGE_CHANGED, position, 0));
++
++            }
++
++            //覆写该方法实现轮播效果
++            @Override
++            public void onPageScrollStateChanged(int state) {
++                switch (state) {
++                    case ViewPager.SCROLL_STATE_DRAGGING:
++                        handler.sendEmptyMessage(ImageCarouseHandler.MSG_KEEP_SILENT);
++                        break;
++                    case ViewPager.SCROLL_STATE_IDLE:
++                        handler.sendEmptyMessageDelayed(ImageCarouseHandler.MSG_UPDATE_IMAGE, ImageCarouseHandler.MSG_DELAY);
++                        break;
++                    default:
++                        break;
++                }
++            }
++        });
++        vp.setCurrentItem(4998);
++        //开始轮播效果
++        handler.sendEmptyMessageDelayed(ImageCarouseHandler.MSG_UPDATE_IMAGE, ImageCarouseHandler.MSG_DELAY);
++        //注意，设置Page 即缓存页面的个数，数过小时会出现fragment重复加载的问题
++    }
++
++    private void showpoint(int position) {
++        //dian0-白色 dian1-灰色
++        for (int i = 0;i<7;i++) {
++            pointimgs[i].setImageResource(R.drawable.dian1);
++            pointimgs[position%7].setImageResource(R.drawable.dian0);
++        }
++    }
++
++
++    @Override
++    public int getItemViewType(int position) {
++        return testDates.get(position);
++    }
++
++    @Override
++    public int getItemCount() {
++        return testDates.size();
++    }
++
++
++    public   void setViewPagerCurrentItem(int currentItem) {
++        vp.setCurrentItem(currentItem);
++    }
++
++
++
++}
++
+Index: app/src/main/java/cn/edu/csuft/lkdapp/frag/HomeFrag.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/cn/edu/csuft/lkdapp/frag/HomeFrag.java	(revision )
++++ app/src/main/java/cn/edu/csuft/lkdapp/frag/HomeFrag.java	(revision )
+@@ -0,0 +1,55 @@
++package cn.edu.csuft.lkdapp.frag;
++
++import android.os.Bundle;
++import android.support.v4.app.Fragment;
++import android.support.v7.widget.LinearLayoutManager;
++import android.support.v7.widget.RecyclerView;
++import android.view.LayoutInflater;
++import android.view.View;
++import android.view.ViewGroup;
++
++import cn.edu.csuft.lkdapp.R;
++
++import java.lang.ref.WeakReference;
++
++import cn.edu.csuft.lkdapp.adapter.MainRvAdapter;
++import cn.edu.csuft.lkdapp.bean.Communitybean;
++import cn.edu.csuft.lkdapp.handler.ImageCarouseHandler;
++
++/**
++ * Created by Administrator on 2016/4/5 0005.
++ */
++public class HomeFrag extends Fragment {
++    private RecyclerView rv;
++    private Communitybean communitybean;
++    private MainRvAdapter mainRvAdapter;
++    //弱引用
++    protected WeakReference<HomeFrag> weakReference ;
++    public  static ImageCarouseHandler handler;
++    @Override
++    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
++        View v = inflater.inflate(R.layout.main_home_frag,container,false);
++        initView(v);
++
++        return v;
++    }
++
++    public    void ChanggeViewPagerCurrentItem(int currentItem) {
++        mainRvAdapter.setViewPagerCurrentItem(currentItem);
++    }
++
++    private void initView(View v) {
++        rv = (RecyclerView) v.findViewById(R.id.rv_main);
++        rv.setLayoutManager(new LinearLayoutManager(getContext()));
++        rv.setHasFixedSize(true); //使RecyclerView保持固定的大小,这样会提高RecyclerView的性能。
++        weakReference = new WeakReference<HomeFrag>(HomeFrag.this);
++        handler =  new ImageCarouseHandler(weakReference);
++        mainRvAdapter = new MainRvAdapter(getContext(),communitybean ,handler);
++        rv.setAdapter(mainRvAdapter );
++    }
++
++
++
++
++
++}
+Index: app/src/main/java/cn/edu/csuft/lkdapp/frag/SchoolFrag.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/cn/edu/csuft/lkdapp/frag/SchoolFrag.java	(revision )
++++ app/src/main/java/cn/edu/csuft/lkdapp/frag/SchoolFrag.java	(revision )
+@@ -0,0 +1,20 @@
++package cn.edu.csuft.lkdapp.frag;
++
++import android.os.Bundle;
++import android.support.v4.app.Fragment;
++import android.view.LayoutInflater;
++import android.view.View;
++import android.view.ViewGroup;
++
++import cn.edu.csuft.lkdapp.R;
++
++/**
++ * Created by Administrator on 2016/4/5 0005.
++ */
++public class SchoolFrag extends Fragment{
++    @Override
++    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
++        View v = inflater.inflate(R.layout.main_school_frag,container,false);
++        return v;
++    }
++}
+Index: app/src/main/res/layout/main_home_menubar.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/main_home_menubar.xml	(revision )
++++ app/src/main/res/layout/main_home_menubar.xml	(revision )
+@@ -0,0 +1,209 @@
++<?xml version="1.0" encoding="utf-8"?>
++<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    android:layout_width="match_parent"
++    android:layout_height="150dp"
++     >
++
++       <TableLayout
++
++            android:layout_width="match_parent"
++            android:layout_height="150dp">
++
++            <TableRow
++                android:layout_width="match_parent"
++                android:layout_height="0dp"
++                android:layout_weight="1">
++
++                <LinearLayout
++                    style="@android:style/Widget.DeviceDefault.Button.Borderless"
++                    android:layout_width="0dp"
++                    android:layout_height="match_parent"
++                    android:background="#00000000"
++                    android:orientation="vertical"
++                    android:layout_weight="1"
++                     >
++                    <ImageButton
++
++                        android:layout_width="60dp"
++                        android:layout_height="60dp"
++                        android:scaleType="fitCenter"
++                        android:src="@drawable/grid_00"
++                        style="@style/Widget.AppCompat.Button.Borderless" />
++                    <TextView
++                        android:layout_width="match_parent"
++                        android:layout_height="wrap_content"
++                        android:gravity="center_horizontal"
++                        android:textSize="10sp"
++                        android:text="单元名称"/>
++                </LinearLayout>
++
++                <LinearLayout
++                    style="@android:style/Widget.DeviceDefault.Button.Borderless"
++                    android:layout_width="0dp"
++                    android:layout_height="match_parent"
++                    android:background="#00000000"
++                    android:orientation="vertical"
++                    android:layout_weight="1"
++                    >
++                    <ImageButton
++
++                        android:layout_width="60dp"
++                        android:layout_height="60dp"
++                        android:scaleType="fitCenter"
++                        android:src="@drawable/grid_01"
++                        style="@style/Widget.AppCompat.Button.Borderless" />
++                    <TextView
++                        android:layout_width="match_parent"
++                        android:layout_height="wrap_content"
++                        android:gravity="center_horizontal"
++                        android:textSize="10sp"
++                        android:text="单元名称"/>
++                </LinearLayout>
++
++                <LinearLayout
++                    style="@android:style/Widget.DeviceDefault.Button.Borderless"
++                    android:layout_width="0dp"
++                    android:layout_height="match_parent"
++                    android:background="#00000000"
++                    android:orientation="vertical"
++                    android:layout_weight="1"
++                    >
++                    <ImageButton
++
++                        android:layout_width="60dp"
++                        android:layout_height="60dp"
++                        android:scaleType="fitCenter"
++                        android:src="@drawable/grid_02"
++                        style="@style/Widget.AppCompat.Button.Borderless" />
++                    <TextView
++                        android:layout_width="match_parent"
++                        android:layout_height="wrap_content"
++                        android:gravity="center_horizontal"
++                        android:textSize="10sp"
++                        android:text="单元名称"/>
++                </LinearLayout>
++
++                <LinearLayout
++                    style="@android:style/Widget.DeviceDefault.Button.Borderless"
++                    android:layout_width="0dp"
++                    android:layout_height="match_parent"
++                    android:background="#00000000"
++                    android:orientation="vertical"
++                    android:layout_weight="1"
++                    >
++                    <ImageButton
++
++                        android:layout_width="60dp"
++                        android:layout_height="60dp"
++                        android:scaleType="fitCenter"
++                        android:src="@drawable/grid_03"
++                        style="@style/Widget.AppCompat.Button.Borderless" />
++                    <TextView
++                        android:layout_width="match_parent"
++                        android:layout_height="wrap_content"
++                        android:gravity="center_horizontal"
++                        android:textSize="10sp"
++                        android:text="单元名称"/>
++                </LinearLayout>
++            </TableRow>
++
++            <TableRow
++                android:layout_width="match_parent"
++                android:layout_height="0dp"
++                android:layout_weight="1">
++
++                <LinearLayout
++                    style="@android:style/Widget.DeviceDefault.Button.Borderless"
++                    android:layout_width="0dp"
++                    android:layout_height="match_parent"
++                    android:background="#00000000"
++                    android:orientation="vertical"
++                    android:layout_weight="1"
++                    >
++                    <ImageButton
++
++                        android:layout_width="60dp"
++                        android:layout_height="60dp"
++                        android:scaleType="fitCenter"
++                        android:src="@drawable/grid_04"
++                        style="@style/Widget.AppCompat.Button.Borderless" />
++                    <TextView
++                        android:layout_width="match_parent"
++                        android:layout_height="wrap_content"
++                        android:gravity="center_horizontal"
++                        android:textSize="10sp"
++                        android:text="单元名称"/>
++                </LinearLayout>
++
++                <LinearLayout
++                    style="@android:style/Widget.DeviceDefault.Button.Borderless"
++                    android:layout_width="0dp"
++                    android:layout_height="match_parent"
++                    android:background="#00000000"
++                    android:orientation="vertical"
++                    android:layout_weight="1"
++                    >
++                    <ImageButton
++
++                        android:layout_width="60dp"
++                        android:layout_height="60dp"
++                        android:scaleType="fitCenter"
++                        android:src="@drawable/grid_05"
++                        style="@style/Widget.AppCompat.Button.Borderless" />
++                    <TextView
++                        android:layout_width="match_parent"
++                        android:layout_height="wrap_content"
++                        android:gravity="center_horizontal"
++                        android:textSize="10sp"
++                        android:text="单元名称"/>
++                </LinearLayout>
++
++                <LinearLayout
++                    style="@android:style/Widget.DeviceDefault.Button.Borderless"
++                    android:layout_width="0dp"
++                    android:layout_height="match_parent"
++                    android:background="#00000000"
++                    android:orientation="vertical"
++                    android:layout_weight="1"
++                    >
++                    <ImageButton
++
++                        android:layout_width="60dp"
++                        android:layout_height="60dp"
++                        android:scaleType="fitCenter"
++                        android:src="@drawable/grid_06"
++                        style="@style/Widget.AppCompat.Button.Borderless" />
++                    <TextView
++                        android:layout_width="match_parent"
++                        android:layout_height="wrap_content"
++                        android:gravity="center_horizontal"
++                        android:textSize="10sp"
++                        android:text="单元名称"/>
++                </LinearLayout>
++
++                <LinearLayout
++                    style="@android:style/Widget.DeviceDefault.Button.Borderless"
++                    android:layout_width="0dp"
++                    android:layout_height="match_parent"
++                    android:background="#00000000"
++                    android:orientation="vertical"
++                    android:layout_weight="1"
++                    >
++                    <ImageButton
++
++                        android:layout_width="60dp"
++                        android:layout_height="60dp"
++                        android:scaleType="fitCenter"
++                        android:src="@drawable/grid_07"
++                        style="@style/Widget.AppCompat.Button.Borderless" />
++                    <TextView
++                        android:layout_width="match_parent"
++                        android:layout_height="wrap_content"
++                        android:gravity="center_horizontal"
++                        android:textSize="10sp"
++                        android:text="单元名称"/>
++                </LinearLayout>
++            </TableRow>
++
++        </TableLayout>
++</LinearLayout>
+Index: app/src/main/res/values/colors.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values/colors.xml	(revision )
++++ app/src/main/res/values/colors.xml	(revision )
+@@ -0,0 +1,9 @@
++<?xml version="1.0" encoding="utf-8"?>
++<resources>
++
++    <color name="colortheme">#2fcc63</color>
++    <color name="colorPrimary">#3F51B5</color>
++    <color name="colorPrimaryDark">#303F9F</color>
++    <color name="colorAccent">#FF4081</color>
++    <color name="colorBlack">#000000</color>
++</resources>
+Index: app/src/main/res/layout/main_home_others.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/main_home_others.xml	(revision )
++++ app/src/main/res/layout/main_home_others.xml	(revision )
+@@ -0,0 +1,117 @@
++<?xml version="1.0" encoding="utf-8"?>
++<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    android:layout_width="match_parent"
++    android:layout_height="300dp"
++    xmlns:app="http://schemas.android.com/apk/res-auto"
++    android:orientation="vertical">
++
++    <RelativeLayout
++        android:layout_width="match_parent"
++        android:layout_height="0dp"
++        android:layout_weight="1"
++        android:orientation="horizontal">
++        <TextView
++            android:layout_width="wrap_content"
++            android:layout_height="match_parent"
++            android:gravity="center"
++            android:text="单元框格名称"
++            android:paddingLeft="10dp"
++            android:drawableStart="@drawable/thumb"
++            android:drawablePadding="10dp"/>
++
++        <TextView
++            android:layout_width="wrap_content"
++            android:layout_height="match_parent"
++            android:gravity="center"
++            android:text="单元框格跳转"
++            android:layout_alignParentTop="true"
++            android:layout_alignParentEnd="true"
++            android:drawableEnd="@drawable/ic_keyboard_arrow_right_24dp"/>
++    </RelativeLayout>
++
++    <LinearLayout
++        android:layout_width="match_parent"
++        android:layout_height="0dp"
++        android:orientation="horizontal"
++        android:layout_weight="3">
++        <LinearLayout
++            android:layout_width="0dp"
++            android:layout_weight="1"
++            android:layout_height="match_parent"
++            android:orientation="vertical">
++            <ImageView
++                android:layout_width="match_parent"
++                android:layout_margin="10dp"
++                android:layout_height="80dp"
++                android:scaleType="fitXY"
++                android:src="@drawable/fengjing0"/>
++            <TextView
++                android:layout_width="match_parent"
++                android:layout_height="0dp"
++                android:gravity="center_horizontal"
++                android:text="测试填充数据"
++                android:layout_weight="1"/>
++        </LinearLayout>
++        <LinearLayout
++            android:layout_width="0dp"
++            android:layout_weight="1"
++            android:layout_height="match_parent"
++            android:orientation="vertical">
++            <ImageView
++                android:layout_width="match_parent"
++                android:layout_margin="10dp"
++                android:layout_height="80dp"
++                android:scaleType="fitXY"
++                android:src="@drawable/fengjing1"/>
++            <TextView
++                android:layout_width="match_parent"
++                android:layout_height="0dp"
++                android:gravity="center_horizontal"
++                android:text="测试填充数据"
++                android:layout_weight="1"/>
++        </LinearLayout>
++    </LinearLayout>
++
++    <LinearLayout
++        android:layout_width="match_parent"
++        android:layout_height="0dp"
++        android:orientation="horizontal"
++        android:layout_weight="3">
++        <LinearLayout
++            android:layout_width="0dp"
++            android:layout_weight="1"
++            android:layout_height="match_parent"
++            android:orientation="vertical">
++            <ImageView
++                android:layout_width="match_parent"
++                android:layout_margin="10dp"
++                android:layout_height="80dp"
++                android:scaleType="fitXY"
++                android:src="@drawable/fengjing2"/>
++            <TextView
++                android:layout_width="match_parent"
++                android:layout_height="0dp"
++                android:gravity="center_horizontal"
++                android:text="测试填充数据"
++                android:layout_weight="1"/>
++        </LinearLayout>
++        <LinearLayout
++            android:layout_width="0dp"
++            android:layout_weight="1"
++            android:layout_height="match_parent"
++            android:orientation="vertical">
++            <ImageView
++                android:layout_width="match_parent"
++                android:layout_margin="10dp"
++                android:layout_height="80dp"
++                android:scaleType="fitXY"
++                android:src="@drawable/fengjing3"/>
++            <TextView
++                android:layout_width="match_parent"
++                android:layout_height="0dp"
++                android:gravity="center_horizontal"
++                android:text="测试填充数据"
++                android:layout_weight="1"/>
++        </LinearLayout>
++    </LinearLayout>
++</LinearLayout>
+\ No newline at end of file
+Index: app/src/main/java/cn/edu/csuft/lkdapp/handler/ImageCarouseHandler.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/java/cn/edu/csuft/lkdapp/handler/ImageCarouseHandler.java	(revision )
++++ app/src/main/java/cn/edu/csuft/lkdapp/handler/ImageCarouseHandler.java	(revision )
+@@ -0,0 +1,80 @@
++package cn.edu.csuft.lkdapp.handler;
++
++import android.os.Handler;
++import android.os.Message;
++
++import java.lang.ref.WeakReference;
++
++import cn.edu.csuft.lkdapp.frag.HomeFrag;
++
++/**
++ * Created by nangua on 2016/4/15 0015.
++ */
++public class ImageCarouseHandler extends Handler {
++    /**
++     * 请求更新显示的View
++     */
++    public static final int MSG_UPDATE_IMAGE = 1;
++    /**
++     * 请求暂停轮播
++     */
++    public static final int MSG_KEEP_SILENT   = 2;
++    /**
++     * 请求恢复轮播。
++     */
++    public static final int MSG_BREAK_SILENT  = 3;
++    /**
++     * 记录最新的页号，当用户手动滑动时需要记录新页号，否则会使轮播的页面出错。
++     * 例如当前如果在第一页，本来准备播放的是第二页，而这时候用户滑动到了末页，
++     * 则应该播放的是第一页，如果继续按照原来的第二页播放，则逻辑上有问题。
++     */
++    public static final int MSG_PAGE_CHANGED  = 4;
++    //轮播间隔时间
++    public static final long MSG_DELAY = 3000;
++
++    //这里使用弱引用避免Handler泄露
++    private WeakReference<HomeFrag> weakReference;
++    private int currentItem = Integer.MAX_VALUE/2;
++
++    public ImageCarouseHandler(WeakReference<HomeFrag> wk) {
++         weakReference = wk;
++    }
++
++    @Override
++    public void handleMessage(Message msg) {
++        super.handleMessage(msg);
++        HomeFrag homeFrag = weakReference.get();
++        if (homeFrag == null) {
++            //HomeFrag已经回收，无需继续处理UI
++            return;
++        }
++        //检查消息队列并移除未发送的消息，这主要是避免在复杂环境下消息出现重复等问题。
++        /**
++         * 这段会把第一次的自动轮播事件吃掉,所以可以加个条件,Position!=Max/2的时候才清除事件.因为第一次Position一定等于Max/2
++         */
++
++       if ((  homeFrag.handler.hasMessages(MSG_UPDATE_IMAGE))&&(currentItem!=Integer.MAX_VALUE/2)){
++           homeFrag.handler.removeMessages(MSG_UPDATE_IMAGE);
++       }
++        switch (msg.what) {
++            case MSG_UPDATE_IMAGE:
++                currentItem++;
++                homeFrag.ChanggeViewPagerCurrentItem(currentItem);
++                //准备下次播放
++                homeFrag.handler.sendEmptyMessageDelayed(MSG_UPDATE_IMAGE, MSG_DELAY);
++                break;
++            case MSG_KEEP_SILENT:
++                //只要不发送消息就暂停了
++                break;
++            case MSG_BREAK_SILENT:
++                homeFrag.handler.sendEmptyMessageDelayed(MSG_UPDATE_IMAGE, MSG_DELAY);
++                break;
++            case MSG_PAGE_CHANGED:
++                //记录当前的页号，避免播放的时候页面显示不正确。
++                currentItem = msg.arg1;
++                break;
++            default:
++                break;
++        }
++    }
++}
+Index: app/src/test/java/com/example/administrator/lkdapp/ExampleUnitTest.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/test/java/com/example/administrator/lkdapp/ExampleUnitTest.java	(revision )
++++ app/src/test/java/com/example/administrator/lkdapp/ExampleUnitTest.java	(revision )
+@@ -0,0 +1,15 @@
++package com.example.administrator.lkdapp;
++
++import org.junit.Test;
++
++import static org.junit.Assert.*;
++
++/**
++ * To work on unit tests, switch the Test Artifact in the Build Variants view.
++ */
++public class ExampleUnitTest {
++    @Test
++    public void addition_isCorrect() throws Exception {
++        assertEquals(4, 2 + 2);
++    }
++}
+\ No newline at end of file
+Index: app/src/main/res/layout/main_school_frag.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/main_school_frag.xml	(revision )
++++ app/src/main/res/layout/main_school_frag.xml	(revision )
+@@ -0,0 +1,7 @@
++<?xml version="1.0" encoding="utf-8"?>
++<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    android:orientation="vertical" android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:background="#4dab58">
++
++</LinearLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/main_home_frag.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/main_home_frag.xml	(revision )
++++ app/src/main/res/layout/main_home_frag.xml	(revision )
+@@ -0,0 +1,15 @@
++<?xml version="1.0" encoding="utf-8"?>
++<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++     >
++
++
++    <android.support.v7.widget.RecyclerView
++        android:id="@+id/rv_main"
++        android:layout_width="match_parent"
++        android:layout_height="match_parent" />
++
++
++
++</LinearLayout>
+\ No newline at end of file
+Index: app/src/main/res/layout/activity_main.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/layout/activity_main.xml	(revision )
++++ app/src/main/res/layout/activity_main.xml	(revision )
+@@ -0,0 +1,112 @@
++<?xml version="1.0" encoding="utf-8"?>
++<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
++    xmlns:tools="http://schemas.android.com/tools"
++    android:layout_width="match_parent"
++    android:layout_height="match_parent"
++    android:orientation="vertical"
++    android:background="@android:color/white"
++    tools:context=".aty.MainActivity">
++
++    <android.support.v7.widget.Toolbar
++        android:id="@+id/main_toobar"
++        android:layout_width="match_parent"
++        android:layout_height="90dp"
++        android:background="@color/colortheme"
++        android:clipToPadding="true"
++        android:fitsSystemWindows="true"
++        android:paddingBottom="5dp">
++
++        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
++            android:id="@+id/portrait"
++            android:layout_width="50dp"
++            android:layout_height="50dp"
++            android:layout_marginLeft="10dp"
++            android:src="@drawable/xiaohui"
++            app:civ_border_color="#FF000000"
++            app:civ_border_width="0dp" />
++
++        <ImageView
++            android:layout_marginLeft="10dp"
++            android:layout_width="120dp"
++            android:layout_height="50dp"
++            android:src="@drawable/lkdziti"/>
++        <ImageButton
++            android:layout_marginLeft="60dp"
++            android:layout_width="50dp"
++            android:layout_height="50dp"
++            android:scaleType="fitCenter"
++            android:src="@drawable/search"
++            style="@style/Base.Widget.AppCompat.Button.Borderless" />
++        <ImageButton
++            android:layout_width="50dp"
++            android:layout_height="50dp"
++            android:scaleType="fitCenter"
++            android:src="@drawable/envelope"
++            style="@style/Base.Widget.AppCompat.Button.Borderless" />
++    </android.support.v7.widget.Toolbar>
++
++    <TextView
++        android:layout_width="match_parent"
++        android:layout_height="1dp"
++        android:background="@android:color/darker_gray" />
++
++    <android.support.v4.view.ViewPager
++        android:id="@+id/main_viewPager"
++        android:layout_width="match_parent"
++        android:layout_height="0dp"
++        android:layout_weight="1"></android.support.v4.view.ViewPager>
++
++    <TextView
++        android:layout_width="match_parent"
++        android:layout_height="1dp"
++        android:background="@android:color/darker_gray" />
++
++    <RadioGroup
++        android:layout_width="match_parent"
++        android:layout_height="45dp"
++        android:layout_marginBottom="3dp"
++        android:layout_marginTop="3dp"
++        android:orientation="horizontal">
++
++        <RadioButton
++            android:id="@+id/rbtn_main_home"
++            android:layout_width="0dp"
++            android:layout_height="wrap_content"
++            android:layout_weight="1"
++            android:button="@null"
++            android:checked="true"
++            android:drawablePadding="3dp"
++            android:drawableTop="@drawable/main_radiobutton_home"
++            android:gravity="center"
++            android:text="@string/main_radiobtn_home"
++            android:textColor="@drawable/main_radiobutton_textcolor"
++            android:textSize="10sp" />
++
++        <RadioButton
++            android:id="@+id/rbtn_main_school"
++            android:layout_width="0dp"
++            android:layout_height="wrap_content"
++            android:layout_weight="1"
++            android:button="@null"
++            android:drawablePadding="3dp"
++            android:drawableTop="@drawable/main_radiobutton_school"
++            android:gravity="center"
++            android:text="@string/main_radiobtn_school"
++            android:textColor="@drawable/main_radiobutton_textcolor"
++            android:textSize="10sp" />
++
++        <RadioButton
++            android:id="@+id/rbtn_main_user"
++            android:layout_width="0dp"
++            android:layout_height="wrap_content"
++            android:layout_weight="1"
++            android:button="@null"
++            android:drawablePadding="3dp"
++            android:drawableTop="@drawable/main_radiobutton_user"
++            android:gravity="center"
++            android:text="@string/main_radiobtn_user"
++            android:textColor="@drawable/main_radiobutton_textcolor"
++            android:textSize="10sp" />
++    </RadioGroup>
++
++</LinearLayout>
+Index: app/src/main/res/drawable/main_radiobutton_textcolor.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/drawable/main_radiobutton_textcolor.xml	(revision )
++++ app/src/main/res/drawable/main_radiobutton_textcolor.xml	(revision )
+@@ -0,0 +1,6 @@
++<?xml version="1.0" encoding="utf-8"?>
++<selector xmlns:android="http://schemas.android.com/apk/res/android">
++
++    <item android:state_checked="true" android:color="@color/colortheme"></item>
++    <item android:state_checked="false" android:color="@android:color/darker_gray"></item>
++</selector>
+\ No newline at end of file
+Index: app/src/main/res/values-w820dp/dimens.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- app/src/main/res/values-w820dp/dimens.xml	(revision )
++++ app/src/main/res/values-w820dp/dimens.xml	(revision )
+@@ -0,0 +1,6 @@
++<resources>
++    <!-- Example customization of dimensions originally defined in res/values/dimens.xml
++         (such as screen margins) for screens with more than 820dp of available width. This
++         would include 7" and 10" devices in landscape (~960dp and ~1280dp respectively). -->
++    <dimen name="activity_horizontal_margin">64dp</dimen>
++</resources>

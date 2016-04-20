@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="400dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="10dp"
+            android:drawableStart="@drawable/tree"
+            android:gravity="center_vertical"
+            android:padding="1dp"
+            android:text="精选专题" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="160dp"
+            android:drawableEnd="@drawable/ic_keyboard_arrow_right_24dp"
+            android:gravity="center_vertical"
+            android:text="精选专题跳转" />
+    </LinearLayout>
+
+    <android.support.v7.widget.GridLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        app:columnCount="2"
+        app:rowCount="4">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_columnWeight="1"
+            app:layout_rowSpan="2"
+            app:layout_rowWeight="1"
+            android:orientation="vertical">
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:src="@drawable/fengjing7"
+                android:scaleType="fitXY"
+                style="@style/Base.Widget.AppCompat.Button.Borderless" />
+            <TextView
+                android:paddingLeft="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:text="还是填充测试数据"
+                 />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_columnWeight="2"
+            app:layout_rowWeight="1"
+            android:orientation="vertical">
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:src="@drawable/fengjing8"
+                android:scaleType="fitXY"
+                style="@style/Base.Widget.AppCompat.Button.Borderless" />
+            <TextView
+                android:paddingLeft="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:text="还是填充测试数据"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_columnWeight="2"
+            app:layout_rowWeight="1"
+            android:orientation="vertical">
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:src="@drawable/fengjing9"
+                android:scaleType="fitXY"
+                style="@style/Base.Widget.AppCompat.Button.Borderless" />
+            <TextView
+                android:paddingLeft="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:text="还是填充测试数据"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_columnWeight="2"
+            app:layout_rowWeight="1"
+            android:orientation="vertical">
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:src="@drawable/fengjing10"
+                android:scaleType="fitXY"
+                style="@style/Base.Widget.AppCompat.Button.Borderless" />
+            <TextView
+                android:paddingLeft="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:text="还是填充测试数据"
+                />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_columnWeight="2"
+            app:layout_rowWeight="1"
+            android:orientation="vertical">
+            <ImageButton
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:src="@drawable/fengjing11"
+                android:scaleType="fitXY"
+                style="@style/Base.Widget.AppCompat.Button.Borderless" />
+            <TextView
+                android:paddingLeft="10dp"
+                android:layout_width="match_parent"
+                android:layout_height="20dp"
+                android:text="还是填充测试数据"
+                />
+        </LinearLayout>
+
+    </android.support.v7.widget.GridLayout>
+</LinearLayout>

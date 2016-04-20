@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+     >
+
+       <TableLayout
+
+            android:layout_width="match_parent"
+            android:layout_height="150dp">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    style="@android:style/Widget.DeviceDefault.Button.Borderless"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="#00000000"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                     >
+                    <ImageButton
+
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/grid_00"
+                        style="@style/Widget.AppCompat.Button.Borderless" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:textSize="10sp"
+                        android:text="单元名称"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@android:style/Widget.DeviceDefault.Button.Borderless"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="#00000000"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    >
+                    <ImageButton
+
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/grid_01"
+                        style="@style/Widget.AppCompat.Button.Borderless" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:textSize="10sp"
+                        android:text="单元名称"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@android:style/Widget.DeviceDefault.Button.Borderless"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="#00000000"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    >
+                    <ImageButton
+
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/grid_02"
+                        style="@style/Widget.AppCompat.Button.Borderless" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:textSize="10sp"
+                        android:text="单元名称"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@android:style/Widget.DeviceDefault.Button.Borderless"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="#00000000"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    >
+                    <ImageButton
+
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/grid_03"
+                        style="@style/Widget.AppCompat.Button.Borderless" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:textSize="10sp"
+                        android:text="单元名称"/>
+                </LinearLayout>
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1">
+
+                <LinearLayout
+                    style="@android:style/Widget.DeviceDefault.Button.Borderless"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="#00000000"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    >
+                    <ImageButton
+
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/grid_04"
+                        style="@style/Widget.AppCompat.Button.Borderless" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:textSize="10sp"
+                        android:text="单元名称"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@android:style/Widget.DeviceDefault.Button.Borderless"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="#00000000"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    >
+                    <ImageButton
+
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/grid_05"
+                        style="@style/Widget.AppCompat.Button.Borderless" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:textSize="10sp"
+                        android:text="单元名称"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@android:style/Widget.DeviceDefault.Button.Borderless"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="#00000000"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    >
+                    <ImageButton
+
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/grid_06"
+                        style="@style/Widget.AppCompat.Button.Borderless" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:textSize="10sp"
+                        android:text="单元名称"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    style="@android:style/Widget.DeviceDefault.Button.Borderless"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:background="#00000000"
+                    android:orientation="vertical"
+                    android:layout_weight="1"
+                    >
+                    <ImageButton
+
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/grid_07"
+                        style="@style/Widget.AppCompat.Button.Borderless" />
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_horizontal"
+                        android:textSize="10sp"
+                        android:text="单元名称"/>
+                </LinearLayout>
+            </TableRow>
+
+        </TableLayout>
+</LinearLayout>

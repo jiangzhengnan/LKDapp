@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@android:color/white"
+    tools:context=".aty.MainActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/main_toobar"
+        android:layout_width="match_parent"
+        android:layout_height="90dp"
+        android:background="@color/colortheme"
+        android:clipToPadding="true"
+        android:fitsSystemWindows="true"
+        android:paddingBottom="5dp">
+
+        <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/portrait"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="10dp"
+            android:src="@drawable/xiaohui"
+            app:civ_border_color="#FF000000"
+            app:civ_border_width="0dp" />
+
+        <ImageView
+            android:layout_marginLeft="10dp"
+            android:layout_width="120dp"
+            android:layout_height="50dp"
+            android:src="@drawable/lkdziti"/>
+        <ImageButton
+            android:layout_marginLeft="60dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/search"
+            style="@style/Base.Widget.AppCompat.Button.Borderless" />
+        <ImageButton
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:scaleType="fitCenter"
+            android:src="@drawable/envelope"
+            style="@style/Base.Widget.AppCompat.Button.Borderless" />
+    </android.support.v7.widget.Toolbar>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray" />
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/main_viewPager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"></android.support.v4.view.ViewPager>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray" />
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginBottom="3dp"
+        android:layout_marginTop="3dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rbtn_main_home"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:checked="true"
+            android:drawablePadding="3dp"
+            android:drawableTop="@drawable/main_radiobutton_home"
+            android:gravity="center"
+            android:text="@string/main_radiobtn_home"
+            android:textColor="@drawable/main_radiobutton_textcolor"
+            android:textSize="10sp" />
+
+        <RadioButton
+            android:id="@+id/rbtn_main_school"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawablePadding="3dp"
+            android:drawableTop="@drawable/main_radiobutton_school"
+            android:gravity="center"
+            android:text="@string/main_radiobtn_school"
+            android:textColor="@drawable/main_radiobutton_textcolor"
+            android:textSize="10sp" />
+
+        <RadioButton
+            android:id="@+id/rbtn_main_user"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:button="@null"
+            android:drawablePadding="3dp"
+            android:drawableTop="@drawable/main_radiobutton_user"
+            android:gravity="center"
+            android:text="@string/main_radiobtn_user"
+            android:textColor="@drawable/main_radiobutton_textcolor"
+            android:textSize="10sp" />
+    </RadioGroup>
+
+</LinearLayout>

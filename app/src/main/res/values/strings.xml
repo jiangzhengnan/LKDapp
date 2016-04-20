@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">LKDapp</string>
+    <string name="main_radiobtn_home">主页</string>
+    <string name="main_radiobtn_school">校内</string>
+    <string name="main_radiobtn_user">我</string>
+
+</resources>

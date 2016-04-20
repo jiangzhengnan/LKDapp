@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="130dp"
+    android:orientation="vertical"
+     >
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="130dp">
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/main_picturecarousel_vp"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </android.support.v4.view.ViewPager>
+
+        <LinearLayout
+            android:layout_width="98dp"
+            android:layout_height="7dp"
+            android:orientation="horizontal"
+            android:layout_marginBottom="10dp"
+            android:layout_gravity="center_horizontal|bottom">
+            <ImageView
+                android:id="@+id/picturecarousel_img0"
+                android:layout_width="7dp"
+                android:layout_height="7dp"
+                android:src="@drawable/dian0"
+                />
+            <ImageView
+                android:id="@+id/picturecarousel_img1"
+                android:layout_marginLeft="7dp"
+                android:layout_width="7dp"
+                android:layout_height="7dp"
+                android:src="@drawable/dian1"
+                />
+            <ImageView
+                android:id="@+id/picturecarousel_img2"
+                android:layout_marginLeft="7dp"
+                android:layout_width="7dp"
+                android:layout_height="7dp"
+                android:src="@drawable/dian1"
+                />
+            <ImageView
+                android:id="@+id/picturecarousel_img3"
+                android:layout_marginLeft="7dp"
+                android:layout_width="7dp"
+                android:layout_height="7dp"
+                android:src="@drawable/dian1"
+                />
+            <ImageView
+                android:id="@+id/picturecarousel_img4"
+                android:layout_marginLeft="7dp"
+                android:layout_width="7dp"
+                android:layout_height="7dp"
+                android:src="@drawable/dian1"
+                />
+            <ImageView
+                android:id="@+id/picturecarousel_img5"
+                android:layout_marginLeft="7dp"
+                android:layout_width="7dp"
+                android:layout_height="7dp"
+                android:src="@drawable/dian1"
+                />
+            <ImageView
+                android:id="@+id/picturecarousel_img6"
+                android:layout_marginLeft="7dp"
+                android:layout_width="7dp"
+                android:layout_height="7dp"
+                android:src="@drawable/dian1"
+                />
+        </LinearLayout>
+    </FrameLayout>
+</LinearLayout>
